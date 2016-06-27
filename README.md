@@ -27,6 +27,11 @@ Favorites are created and retrieved with two additional functions:
 ## Set-SessionFavorite
 A function to create a favorite to be used with the New-ProxyPSSession and New-ProxyCimSession proxy functions.
 
+Sessions are saved to:
+```powershell
+$env:APPDATA\Sessions\Favorites.json
+```
+
 ##### SearchBase
 Like in the New-ProxyPSSession and New-ProxyCimSession functions, this dynamic parameter will be a validated set on the output of this command: 
 ```powershell
