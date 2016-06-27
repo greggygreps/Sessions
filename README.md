@@ -25,11 +25,22 @@ Favorites are created and retrieved with two additional functions:
 ##### `Set-SessionFavorite`
 
 ### Set-SessionFavorite
+A function to create a favorite to be used with the New-ProxyPSSession and New-ProxyCimSession proxy functions.
+
+##### SearchBase
+Like in the New-ProxyPSSession and New-ProxyCimSession functions, this dynamic parameter will be a validated set on the output of this command: 
+```powershell
+Get-ADOrganizationalUnit -Filter 'Name -like "*"' -SearchScope OneLevel | select -expand name
+```
+which will be used to send a list of computers to Out-GridView to be selected.
+
+Once one or more computers are selected, the favorite will be created with the parameter Name as the identifier.
+If a favorite already exists with the Name provided, you will prompted to overwrite or append the existing one.
 
 ### Get-SessionFavorite
 A function to retrieve the favorites created from the Set-SessionFavorite function.
 
-#### Name
+##### Name
 The dynamic parameter Name will be a validated set on the names stored in:
 ```powershell
 $env:APPDATA\Sessions\Favorites.json
