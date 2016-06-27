@@ -24,7 +24,7 @@ Favorites are created and retrieved with two additional functions:
 ##### `Get-SessionFavorite`
 ##### `Set-SessionFavorite`
 
-### Set-SessionFavorite
+## Set-SessionFavorite
 A function to create a favorite to be used with the New-ProxyPSSession and New-ProxyCimSession proxy functions.
 
 ##### SearchBase
@@ -43,7 +43,7 @@ Get-ADComputer -Identity Test5 | Set-SessionFavorite -Name TestMachines
 Once one or more computers are selected, the favorite will be created with the parameter Name as the identifier.
 If a favorite already exists with the Name provided, you will prompted to overwrite or append the existing one.
 
-### Get-SessionFavorite
+## Get-SessionFavorite
 A function to retrieve the favorites created from the Set-SessionFavorite function.
 
 ##### Name
