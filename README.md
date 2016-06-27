@@ -8,7 +8,10 @@ Get-ADOrganizationalUnit -Filter 'Name -like "*"' -SearchScope OneLevel | select
 ```
 
 #### Favorite
-The dynamic parameter Favorite will be a validated set on the names of favorites stored in `$env:APPDATA\Sessions\Favorites.json`
+The dynamic parameter Favorite will be a validated set on the names of favorites stored in:
+```powershell
+$env:APPDATA\Sessions\Favorites.json
+```
 
 Favorites are created and retrieved with two additional functions:
 ##### `Get-SessionFavorite`
