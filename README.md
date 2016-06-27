@@ -8,6 +8,11 @@ The dynamic parameter SearchBase will be a validated set on the output of this c
 ```powershell
 Get-ADOrganizationalUnit -Filter 'Name -like "*"' -SearchScope OneLevel | select -expand name
 ```
+The Organizational Unit selected will be used as the SearchBase for this command:
+```powershell
+Get-ADComputer -SearchBase $distinguishedName -Filter * | Select DnsHostName, DistinguishedName, Enabled, SID
+```
+whose output will be sent to Out-GridView so that one or more computers can be selected to start a session with.
 
 #### Favorite
 The dynamic parameter Favorite will be a validated set on the names of favorites stored in:
@@ -19,10 +24,14 @@ Favorites are created and retrieved with two additional functions:
 ##### `Get-SessionFavorite`
 ##### `Set-SessionFavorite`
 
-### New-ProxyPSSession
-
-### New-ProxyCimSession
+### Set-SessionFavorite
 
 ### Get-SessionFavorite
+A function to retrieve the favorites created from the Set-SessionFavorite function.
 
-### Set-SessionFavorite
+#### Name
+The dynamic parameter Name will be a validated set on the names stored in:
+```powershell
+$env:APPDATA\Sessions\Favorites.json
+```
+If no Name is provided, all stored favorites will be returned.
