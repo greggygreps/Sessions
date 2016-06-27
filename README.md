@@ -34,6 +34,12 @@ Get-ADOrganizationalUnit -Filter 'Name -like "*"' -SearchScope OneLevel | select
 ```
 which will be used to send a list of computers to Out-GridView to be selected.
 
+##### DNSHostName
+This parameter takes it's value by property name from the pipeline.
+```powershell
+Get-ADComputer -Identity Test5 | Set-SessionFavorite -Name TestMachines
+```
+
 Once one or more computers are selected, the favorite will be created with the parameter Name as the identifier.
 If a favorite already exists with the Name provided, you will prompted to overwrite or append the existing one.
 
